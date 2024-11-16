@@ -8,9 +8,13 @@ const port = 3000
 
 // get request 
 
+// app.get('/', (req, res) => {
+//     res.send('Got a GET request');
+// })
+
 app.get('/', (req, res) => {
-    res.send('Got a GET request');
-})
+    res.sendFile('./dummy.html', {root:__dirname})
+});
 
 app.post('/items', (req, res) => {
     res.send('Got a POST request');
