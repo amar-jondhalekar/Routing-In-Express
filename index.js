@@ -4,9 +4,10 @@ const port = 3000
 
 // import item route file 
 const item = require('./routes/item');
+const birds = require('./routes/birds');
 // load into application 
-
 app.use('/api', item);
+app.use('/filler', birds);
 
 // -> /api/ -> item home page
 // -> /api/items -> item post request 
