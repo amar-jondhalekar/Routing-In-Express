@@ -2,31 +2,16 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
+// import item route file 
+const item = require('./routes/item');
+// load into application 
 
-// get request 
+app.use('/api', item);
 
-// app.get('/', (req, res) => {
-//     res.send('Got a GET request');
-// })
+// -> /api/ -> item home page
+// -> /api/items -> item post request 
+// -> /api/items/id -> put/delete request 
 
-app.get('/', (req, res) => {
-    res.sendFile('./dummy.html', {root:__dirname})
-});
-
-app.post('/items', (req, res) => {
-    res.send('Got a POST request');
-})
-
-app.put('/items/:id', (req, res) => {
-    res.send('Got a PUT request');
-})
-
-app.delete('/items/:id', (req, res) => {
-    res.send('Got a DELETE request');
-})
 
 app.listen(port, () => {
     console.log(`Amar App listeining on port ${port}`)
